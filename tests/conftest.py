@@ -8,12 +8,13 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 
 # @pytest.fixture(params=["chrome", "firefox"], scope="class")
-@pytest.fixture(params=[ "firefox"], scope="class")
+@pytest.fixture(params=[ "chrome"], scope="class")
 def init_driver(request):
     if request.param == "chrome":
         # web_driver = webdriver.Chrome(executable_path=TestData.CHROME_EXECUTABLE_PATH)
         option = webdriver.ChromeOptions()
         option.add_argument("start-maximized")
+        # option.add_argument("--headless")
         web_driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=option)
 
     if request.param == "firefox":
