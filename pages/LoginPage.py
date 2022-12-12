@@ -11,7 +11,7 @@ class LoginPage(BasePage):
     TXTB_SEARCH = (By.NAME, "q")
 
     # constructor
-    def __init__(self, driver) :
+    def __init__(self, driver):
         super().__init__(driver)
         self.driver.get(TestData.BASE_URL)
 
